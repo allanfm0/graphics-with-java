@@ -22,8 +22,12 @@ public class Game extends Canvas implements Runnable {
     private final int SCALE = 3;
 
     private BufferedImage image;
+    private Spritesheet spritesheet;
+    private BufferedImage player;
 
     public Game() {
+        //spritesheet = new Spritesheet("/nomedoarquivo");
+        //player = spritesheet.getSprite(0, 0, 16, 16);
         setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
         initFrame();
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -74,13 +78,15 @@ public class Game extends Canvas implements Runnable {
         g.setColor(new Color(0, 0, 0));
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        g.setColor(Color.RED);
-        g.fillOval(0, 0, 50, 50);
-
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.setColor(Color.white);
         g.drawString("Hello World!", 50, 50);
 
+        //Renderizando o jogo
+        //g.drawImage(player, 20, 20, null);
+
+
+        g.dispose();
         g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
         bs.show();
